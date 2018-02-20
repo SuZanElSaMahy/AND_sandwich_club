@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.udacity.sandwichclub.DetailActivity">
+    tools:context="com.udacity.sandwichclub.DetailActivity"
+    android:id="@+id/detail_sv">
 
 
     <RelativeLayout
@@ -117,7 +118,7 @@
             android:id="@+id/description_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/known_card"
+            android:layout_below="@+id/ingridients_card"
             android:layout_margin="@dimen/standard_margin">
 
 

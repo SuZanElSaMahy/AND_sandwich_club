@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,8 +18,7 @@ public class DetailActivity extends AppCompatActivity {
     private static final int DEFAULT_POSITION = -1;
     private ImageView ingredientsIv;
     private TextView descriptionTv;
-    private TextView ingredientsTv;
-    private TextView mainNameTv;
+    private TextView ingredientsTextView;
     private TextView alsoKnownAsTv;
     private TextView placeOfOriginTv;
 
@@ -60,14 +60,8 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
 
-       for(int i = 0 ; i<sandwich.getIngredients().size();i++){
-           ingredientsTv.setText(sandwich.getIngredients().get(i));
-       }
-
-       for ( int j = 0 ; j<sandwich.getAlsoKnownAs().size();j++){
-           alsoKnownAsTv.setText(sandwich.getAlsoKnownAs().get(j));
-       }
-
+        ingredientsTextView.setText(TextUtils.join(", ", sandwich.getIngredients()));
+        alsoKnownAsTv.setText(TextUtils.join(", ", sandwich.getAlsoKnownAs()));
         descriptionTv.setText(sandwich.getDescription());
         placeOfOriginTv.setText(sandwich.getPlaceOfOrigin());
 
@@ -84,10 +78,8 @@ public class DetailActivity extends AppCompatActivity {
 
         ingredientsIv = findViewById(R.id.image_iv);
         descriptionTv = findViewById(R.id.description_tv);
-        ingredientsTv = findViewById(R.id.ingredients_tv);
+        ingredientsTextView = findViewById(R.id.ingredients_tv);
         placeOfOriginTv = findViewById(R.id.origin_tv);
         alsoKnownAsTv = findViewById(R.id.also_known_tv);
     }
-
-
 }
